@@ -2,6 +2,7 @@ This file includes the data and analysis to support EIG's Great Transfer-Mation 
 
 
 ############################################
+
 **DATA SOURCES**
 
 Bureau of Economic Analysis (BEA) CAIN4 1969-2022 and CAINC35 1969-2022 files
@@ -24,6 +25,7 @@ ACS 5-year samples
 	https://usa.ipums.org/usa/
 
 ############################################
+
 **GEOGRAPHY VARS**
 
 **County FIPS Code**
@@ -37,7 +39,9 @@ Name of the county in {County}, {State} format.
 Year
 
 ############################################
-POPULATION VARS
+
+**POPULATION VARS**
+
 **population**
 Total population, as reported by the BEA
 
@@ -45,7 +49,8 @@ Total population, as reported by the BEA
 Share of geographic area’s population over 65, as reported by the Census Bureau
 
 ############################################
-INCOME SUMMARY VARIABLES
+
+**INCOME SUMMARY VARIABLES**
 
 **total income from all sources**
 (2022 USD)
@@ -96,6 +101,7 @@ per capita total income - per capita government transfers
 government transfers / total income, reported as a percentage
 
 ############################################
+
 **TRANSFER SUB-CATEGORIES**
 
 **Social security transfers**
