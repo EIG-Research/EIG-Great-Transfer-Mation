@@ -15,7 +15,7 @@ library(openxlsx)
 library(readxl)
 library(stringr)
 
-path_project = "ENTER USER PROJECT PATH HERE"
+path_project = "ENTER USER PROJECT PATH HERE
 path_data_raw = file.path(path_project,"data/raw")
 path_data_out = file.path(path_project,"data/clean")
 path_out = file.path(path_project,"output")
@@ -79,32 +79,34 @@ plot1 <-  df_per_cap %>%
   ggplot(aes(x=earnings_change)) +
   geom_histogram(alpha = 0.5, color = "#e1ad28", fill = "#e1ad28") +
   geom_vline(xintercept = 2.38) +
-  theme_classic() +   
   labs(title ="",
-       subtitle = "High Transfer Ratio (25%+)",
-       x = "(net earnings 2022) / (net earnings 1970)") +
-  theme(axis.title.x = element_text(size = 7),
-        plot.subtitle = element_text(size=7),
-        axis.title.y = element_text(size = 7),
-        plot.title = element_text(size = 8, 
-                                  color = "#1a654d", face = "bold"))
-
+       subtitle = "Significant (25+%)",
+       y = "counties",
+       x = "(earnings 2022)/(earnings 1970)") +
+  theme_minimal() +
+  theme(axis.title.x = element_text(size = 12, color = "darkgrey"),
+        axis.text.x = element_text(size = 12, color = "darkgrey"),
+        axis.text.y = element_text(size=12, color ="darkgrey"),
+        plot.subtitle = element_text(face="bold", size = 12),
+        axis.title.y = element_text(size = 12, color = "darkgrey"))
 plot1
 
 plot2 <- df_per_cap %>%
   filter(transfer_tiers=="mid transfer tier (15-25%)") %>%
   ggplot(aes(x=earnings_change)) +
   geom_histogram(alpha = 0.8, color = "#b3d6dd", fill = "#b3d6dd") +
-  theme_classic() +   
   geom_vline(xintercept = 2.38) +
   labs(title ="",
-       subtitle = "Mid Transfer Ratio (15-25%)",
-       x = "(net earnings 2022) / (net earnings 1970)") +
-  theme(axis.title.x = element_text(size = 7),
-        plot.subtitle = element_text(size=7),        
-        axis.title.y = element_text(size = 7),
-        plot.title = element_text(size = 8, 
-                                  color = "#1a654d", face = "bold",hjust = 1))
+       subtitle = "Moderate (15-24.9%)",
+       x = "(earnings 2022)/(earnings 1970)") +
+  theme_minimal() +
+  theme(axis.title.x = element_text(size = 12, color = "darkgrey"),
+        axis.text.x = element_text(size = 12, color = "darkgrey"),
+        axis.text.y = element_text(size=12, color ="darkgrey"),
+        axis.title.y = element_blank(),
+        plot.subtitle = element_text(face="bold", size = 12))
+
+plot2
 
 plot3 <- df_per_cap %>%
   filter(transfer_tiers=="low transfer tier (0-15%)") %>%
@@ -112,23 +114,32 @@ plot3 <- df_per_cap %>%
   mutate(lag = earnings_change<2.38) %>%
   ggplot(aes(x=earnings_change)) +
   geom_histogram(alpha = 0.5, color = "#1a654d", fill = "#1a654d") +
-  theme_classic() +   
   geom_vline(xintercept = 2.38) +
   labs(title ="", 
-       subtitle = "Low Transfer Ratio (0-15%)",
-       x = "(net earnings 2022) / (net earnings 1970)") +
-  theme(axis.title.x = element_text(size = 7),
-        plot.subtitle = element_text(size=7),
-        axis.title.y = element_text(size = 7),
-        plot.title = element_text(size = 8, 
-                                  color = "#1a654d", face = "bold",hjust = 1))
+       subtitle = "Minimal (<15%)",
+       x = "(earnings 2022)/(earnings 1970)") +
+  theme_minimal() +
+  theme(axis.title.x = element_text(size = 12, color = "darkgrey"),
+        axis.text.x = element_text(size = 12, color = "darkgrey"),
+        axis.text.y = element_text(size=12, color ="darkgrey"),
+        axis.title.y = element_blank(),
+        plot.subtitle = element_text(face="bold", size = 12))
 
+plot3
 
 require(gridExtra)
 library(grid)
 plot = grid.arrange(plot1, plot2,plot3, ncol=3, 
                     top = 
-                      textGrob("Figure 12: Real Growth in Per-Capita Earnings 1970-2022"))
+                      textGrob("Figure 12: Real growth in per-capita earnings 1970-2022",
+                               gp=grid::gpar(fontsize = 16, col = "#1a654d", fontface = "bold"),
+                               hjust = 0, x = 0),
+                    bottom = grid::textGrob("\nSource: EIG analysis of Bureau of Economic Analysis data",
+                                            hjust = 0, x = 0,
+                                            gp = grid::gpar(fontsize = 10, col="black")))
 
 
-ggsave(plot = plot, paste(path_out, "fig 12.png",sep="/"))
+
+ggsave(plot = plot, paste(path_out, "fig 12.png",sep="/"),
+       width = 10, height = 6)
+
