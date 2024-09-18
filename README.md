@@ -114,7 +114,7 @@ Note: Connecticut’s 2022 boundary changes are not reflected by the Bureau of E
 
 ***
 
-<h2>TRANSFER SUB-CATEGORIES/
+<h2>TRANSFER SUB-CATEGORIES</h2>
 
 For simplicity, we do not report all sub-categories. Please see the BEA’s published files (linked above), or our expanded dataset available in the \data\ folder.
 
