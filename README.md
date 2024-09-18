@@ -32,12 +32,12 @@ County metropolitan classifications are derived from the NCHS’ [Rural-Urban Co
 
 Supplementary data for the old-age population, defined as individuals 65 years of age and older, comes from the Census Bureau’s County Intercensal Tables Program. These tables provide annual county population estimates by age, sex, and race. Files are published separately by year. We rely on the following files:
 <ol>
-<li>1970-1979: [link](https://www.census.gov/data/tables/time-series/demo/popest/pre-1980-county.html)</li>
-<li>1980-1989: [link](https://www.census.gov/data/tables/time-series/demo/popest/1980s-county.html)</li>
-<li>1990-1999: [link](https://www.census.gov/data/tables/time-series/demo/popest/1990s-county.html)</li>
-<li>2000-2009: [link](https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html)</li>
-<li>2010-2019: [link](https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html)</li>
-<li>2020-2022: [link](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)</li>
+<li>1970-1979: [link](https://www.census.gov/data/tables/time-series/demo/popest/pre-1980-county.html) </li>
+<li>1980-1989: [link](https://www.census.gov/data/tables/time-series/demo/popest/1980s-county.html) </li>
+<li>1990-1999: [link](https://www.census.gov/data/tables/time-series/demo/popest/1990s-county.html) </li>
+<li>2000-2009: [link](https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html) </li>
+<li>2010-2019: [link](https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html) </li>
+<li>2020-2022: [link](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html) </li>
 </ol>
 
 
