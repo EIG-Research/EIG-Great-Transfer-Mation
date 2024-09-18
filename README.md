@@ -22,7 +22,7 @@ The Bureau of Economic Analysis’s (BEA) regional economic account files [link]
 <li>CAINC35 - “Personal current transfer receipts.” This file provides a breakdown of transfer receipts from government and non-government sources at the county, state, and national levels for 1969-2022.
 <\ol>
 
-<h3> Metro status<h3>
+<h3>Metro status<h3>
 
 County metropolitan classifications are derived from the NCHS’ Rural-Urban Continuum Codes for 2023 [link](https://www.ers.usda.gov/data-products/rural-urban-continuum-codes.aspx). The categories used in this report are simplified from the NCHS’s scheme according to the method outlined in the “GEOGRAPHY AND TIME VARS” section below.
 
