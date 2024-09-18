@@ -3,7 +3,7 @@
 
 ***
 
-This repository includes the data and necessary code to support EIG's analysis, The Great “Transfer”-mation. You can find the interactive webpage here [link](ADD LINK HERE) and the full draft here [link](ADD LINK HERE). 
+This repository includes the data and necessary code to support EIG's analysis, The Great “Transfer”-mation. You can find the interactive webpage [here]([ADD LINK HERE](https://eig.org/great-transfermation) and the full draft [here](https://eig.org/wp-content/uploads/2024/09/Great-Transfermation.pdf). 
 
 All links are current at the time of publication.
 
