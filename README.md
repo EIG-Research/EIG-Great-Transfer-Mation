@@ -30,15 +30,13 @@ County metropolitan classifications are derived from the NCHS’ [Rural-Urban Co
 
 <h3>Old-age population</h3>
 
-Supplementary data for the old-age population, defined as individuals 65 years of age and older, comes from the Census Bureau’s County Intercensal Tables Program. These tables provide annual county population estimates by age, sex, and race. Files are published separately by year. We rely on the following files: [1970-1979](https://www.census.gov/data/tables/time-series/demo/popest/pre-1980-county.html), [1980-1989](https://www.census.gov/data/tables/time-series/demo/popest/1980s-county.html) 
-, [1990-1999](https://www.census.gov/data/tables/time-series/demo/popest/1990s-county.html), [2000-2009](https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html) 
-, [2010-2019](https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html), and [2020-2022](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html).
+Supplementary data for the old-age population, defined as individuals 65 years of age and older, comes from the Census Bureau’s County Intercensal Tables Program. These tables provide annual county population estimates by age, sex, and race. Files are published separately by year. We rely on the following files: [1970-1979](https://www.census.gov/data/tables/time-series/demo/popest/pre-1980-county.html), [1980-1989](https://www.census.gov/data/tables/time-series/demo/popest/1980s-county.html), [1990-1999](https://www.census.gov/data/tables/time-series/demo/popest/1990s-county.html), [2000-2009](https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html), [2010-2019](https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html), and [2020-2022](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html).
 
 
 
 <h3>Poverty rates</h3>
 
-Poverty rates come from the Census Bureau Small Area Income and Poverty Estimates program, and are available at the decade marks. [link](https://www.census.gov/data/tables/time-series/dec/census-poverty.html)
+Poverty rates come from the Census Bureau Small Area Income and Poverty Estimates program, and are [available at the decade marks](https://www.census.gov/data/tables/time-series/dec/census-poverty.html).
 
 
 ***
@@ -130,4 +128,4 @@ For simplicity, we do not report all sub-categories. Please see the BEA’s publ
 
 We follow the BEA’s transfer income categorizations throughout this report, which covers all "receipts of persons from government and business for which no current services are performed. Current transfer receipts from government include Social Security benefits, medical benefits, veterans' benefits, and unemployment insurance benefits. Current transfer receipts from business include liability payments for personal injury and corporate gifts to nonprofit institutions."
 
-To view the detailed BEA discussion on concepts and methods to identity the categorization and inclusion of specific programs, please see the Bureau of Economic Analysis State Personal Income and Employment: Concepts and Methods document [link](https://www.bea.gov/system/files/methodologies/SPI-Methodology.pdf), page 59 under the section Current Transfer Receipts of Individuals from Governments.
+To view the detailed BEA discussion on concepts and methods to identity the categorization and inclusion of specific programs, please see the Bureau of Economic Analysis [State Personal Income and Employment: Concepts and Methods document](https://www.bea.gov/system/files/methodologies/SPI-Methodology.pdf), page 59 under the section Current Transfer Receipts of Individuals from Governments.
