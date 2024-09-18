@@ -19,7 +19,7 @@ The Bureau of Economic Analysis’s (BEA) regional economic account files [link]
 <ol>
 <li>CAINC4 - “Personal income and employment by major component by county.” This file provides information related to the components of income and population at the county, state, and national levels for 1969-2022. This file combines all transfer programs, so an additional source file is required.
 <li>CAINC35 - “Personal current transfer receipts.” This file provides a breakdown of transfer receipts from government and non-government sources at the county, state, and national levels for 1969-2022.
-<\ol>
+<ol>
 
 <h3> Metro status<h3>
 
