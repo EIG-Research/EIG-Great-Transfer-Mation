@@ -17,9 +17,9 @@ Contact Benjamin Glasner with any questions at benjamin@eig.org.
 
 The Bureau of Economic Analysis’s (BEA) regional economic account files [link](https://apps.bea.gov/regional/downloadzip.htm) are the primary source of data for this report. These files cover a range of local socioeconomic data topics including local Gross Domestic Product, Personal Income, and Personal Consumption Expenditures for a range of locality sizes. We use two files for our county-level and national-level analysis:
 <ol>
-<li>CAINC4 - “Personal income and employment by major component by county.” This file provides information related to the components of income and population at the county, state, and national levels for 1969-2022. This file combines all transfer programs, so an additional source file is required. <\li>
-<li>CAINC35 - “Personal current transfer receipts.” This file provides a breakdown of transfer receipts from government and non-government sources at the county, state, and national levels for 1969-2022.<\li>
-<\ol>
+<li>CAINC4 - “Personal income and employment by major component by county.” This file provides information related to the components of income and population at the county, state, and national levels for 1969-2022. This file combines all transfer programs, so an additional source file is required.
+<li>CAINC35 - “Personal current transfer receipts.” This file provides a breakdown of transfer receipts from government and non-government sources at the county, state, and national levels for 1969-2022.
+<ol>
 
 <h3> Metro status<h3>
 
