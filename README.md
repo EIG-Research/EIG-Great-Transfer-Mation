@@ -1,5 +1,5 @@
-<h1>The Great “Transfer”-mation<h1>
-<h2>How American Communities became reliant on income from government<h2>
+<h1>The Great “Transfer”-mation</h1>
+<h2>How American Communities became reliant on income from government</h2>
 
 ***
 
@@ -11,43 +11,43 @@ Contact Benjamin Glasner with any questions at benjamin@eig.org.
 
 ***
 
-<h2>DATA SOURCES<h2>
+<h2>DATA SOURCES</h2>
 
-<h3>Income and population<h3>
+<h3>Income and population</h3>
 
 The Bureau of Economic Analysis’s (BEA) regional economic account files [link](https://apps.bea.gov/regional/downloadzip.htm) are the primary source of data for this report. These files cover a range of local socioeconomic data topics including local Gross Domestic Product, Personal Income, and Personal Consumption Expenditures for a range of locality sizes. We use two files for our county-level and national-level analysis:
 
 <ol>
-<li>CAINC4 - “Personal income and employment by major component by county.” This file provides information related to the components of income and population at the county, state, and national levels for 1969-2022. This file combines all transfer programs, so an additional source file is required.
-<li>CAINC35 - “Personal current transfer receipts.” This file provides a breakdown of transfer receipts from government and non-government sources at the county, state, and national levels for 1969-2022.
-<ol>
+<li>CAINC4 - “Personal income and employment by major component by county.” This file provides information related to the components of income and population at the county, state, and national levels for 1969-2022. This file combines all transfer programs, so an additional source file is required.</li>
+<li>CAINC35 - “Personal current transfer receipts.” This file provides a breakdown of transfer receipts from government and non-government sources at the county, state, and national levels for 1969-2022.</li>
+</li>
 
-<h3>Metro status<h3>
+<h3>Metro status</h3>
 
 County metropolitan classifications are derived from the NCHS’ Rural-Urban Continuum Codes for 2023 [link](https://www.ers.usda.gov/data-products/rural-urban-continuum-codes.aspx). The categories used in this report are simplified from the NCHS’s scheme according to the method outlined in the “GEOGRAPHY AND TIME VARS” section below.
 
 
-<h3>Old-age population<h3>
+<h3>Old-age population</h3>
 
 Supplementary data for the old-age population, defined as individuals 65 years of age and older, comes from the Census Bureau’s County Intercensal Tables Program. These tables provide annual county population estimates by age, sex, and race. Files are published separately by year. We rely on the following files:
 <ol>
-<li>1970-1979: [link]( https://www.census.gov/data/tables/time-series/demo/popest/pre-1980-county.html)<\li>
-<li>1980-1989: [link](https://www.census.gov/data/tables/time-series/demo/popest/1980s-county.html)<\li>
-<li>1990-1999: [link]( https://www.census.gov/data/tables/time-series/demo/popest/1990s-county.html)<\li>
-<li>2000-2009: [link](https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html)<\li>
-<li>2010-2019: [link](https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html)<\li>
-<li>2020-2022: [link](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)<\li>
-<\ol>
+<li>1970-1979: [link]( https://www.census.gov/data/tables/time-series/demo/popest/pre-1980-county.html)</li>
+<li>1980-1989: [link](https://www.census.gov/data/tables/time-series/demo/popest/1980s-county.html)</li>
+<li>1990-1999: [link]( https://www.census.gov/data/tables/time-series/demo/popest/1990s-county.html)</li>
+<li>2000-2009: [link](https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html)</li>
+<li>2010-2019: [link](https://www.census.gov/data/tables/time-series/demo/popest/2010s-counties-detail.html)</li>
+<li>2020-2022: [link](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html)</li>
+</ol>ol>
 
 
-<h3>Poverty rates<h3>
+<h3>Poverty rates</h3>
 
 Poverty rates come from the Census Bureau Small Area Income and Poverty Estimates program, and are available at the decade marks. [link](https://www.census.gov/data/tables/time-series/dec/census-poverty.html)
 
 
 ***
 
-<h2>GEOGRAPHY AND TIME VARS<h2>
+<h2>GEOGRAPHY AND TIME VARS</h2>
 
 We perform the analysis using both national and county-level data. The “County FIPS Code” is only available for the county-level data file.
 
@@ -62,7 +62,7 @@ Note: Connecticut’s 2022 boundary changes are not reflected by the Bureau of E
 
 ***
 
-<h2>POPULATION VARS<h2>
+<h2>POPULATION VARS</h2>
 
 “population”: Total population ( BEA CAINC4, line code 20)
 
@@ -70,41 +70,41 @@ Note: Connecticut’s 2022 boundary changes are not reflected by the Bureau of E
 
 ***
 
-<h2>INCOME SUMMARY VARIABLES<h2>
+<h2>INCOME SUMMARY VARIABLES</h2>
 
 “total income from all sources (2022 USD)”: total personal income (BEA CAINC4, line code 10). This includes:
 <ol>
-<li>Wages and salaries from all industries (CAINC4 line code 50) <\li>
-<li>Supplements to wages and salaries, covering employer payments made on behalf of employees such as employee pension and insurance funds as well as employer contributions for government social insurance. (CAINC4 line code 60) <\li>
-<li>Proprietors’ income for both farm and non-farm sole proprietorships, partnerships, and tax-exempt cooperatives. Excludes dividends, money interest from non-financial businesses, and rental income received by individuals not engaged in real estate (CAINC4 line code 70) <\li>
-<li>Rental income, dividends, interests, and rents (CAINC4 line code 46) <\li>
-<li>Transfer receipts from the government, non-for-profits, and businesses. (CAINC4 line code 47) <\li>
-<\ol>
+<li>Wages and salaries from all industries (CAINC4 line code 50) </li>
+<li>Supplements to wages and salaries, covering employer payments made on behalf of employees such as employee pension and insurance funds as well as employer contributions for government social insurance. (CAINC4 line code 60) </li>
+<li>Proprietors’ income for both farm and non-farm sole proprietorships, partnerships, and tax-exempt cooperatives. Excludes dividends, money interest from non-financial businesses, and rental income received by individuals not engaged in real estate (CAINC4 line code 70) </li>
+<li>Rental income, dividends, interests, and rents (CAINC4 line code 46) </li>
+<li>Transfer receipts from the government, non-for-profits, and businesses. (CAINC4 line code 47) </li>
+</ol>
 
 “per capita total income from all sources (2022 USD)”: total personal income (BEA CAINC4, line code 10) divided by geographic area population (BEA CAINC4, line code 20)
 
 “government transfers (2022 USD)”: CAINC35 line code 1000. This includes:
 <ol>
-<li>Retirement and disability insurance benefits (CAINC35 line code 2000), which includes both Social Security (CAINC35 line code 2110), as well as old-age disability insurance. <\li>
-<li>Medical benefits (CAINC35 line code 2200), which includes Medicare (line code 22210), Medicaid (line code 2220), and military medical insurance benefits (line code 2230) <\li>
-<li>Income maintenance benefits (CAINC35 line code 2300), which includes Supplemental Security Income (line code 2310), Earned Income Tax Credit (EITC) (line code 2320), SUpplemental Nutrition Assistance Program (SNAP) (line code 2330), and other temporary programs, such as some COVID relief programs. <\li>
-<li>Unemployment insurance compensation (CAINC35 line code 2400), including state unemployment insurance compensation (2410) and most temporary pandemic relief programs. <\li>
-<li>Veterans’ benefits (CAINC35 line code 2500), including pension and disability. <\li>
-<li>Education and training assistance (CAINC35 line code 2600) <\li>
-<li>Other uncategorized (CAINC35 line code 2700) <\li>
-<\ol>
+<li>Retirement and disability insurance benefits (CAINC35 line code 2000), which includes both Social Security (CAINC35 line code 2110), as well as old-age disability insurance. </li>
+<li>Medical benefits (CAINC35 line code 2200), which includes Medicare (line code 22210), Medicaid (line code 2220), and military medical insurance benefits (line code 2230) </li>
+<li>Income maintenance benefits (CAINC35 line code 2300), which includes Supplemental Security Income (line code 2310), Earned Income Tax Credit (EITC) (line code 2320), SUpplemental Nutrition Assistance Program (SNAP) (line code 2330), and other temporary programs, such as some COVID relief programs. </li>
+<li>Unemployment insurance compensation (CAINC35 line code 2400), including state unemployment insurance compensation (2410) and most temporary pandemic relief programs. </li>
+<li>Veterans’ benefits (CAINC35 line code 2500), including pension and disability. </li>
+<li>Education and training assistance (CAINC35 line code 2600) </li>
+<li>Other uncategorized (CAINC35 line code 2700) </li>
+</ol>
 
 “per capita government transfers (2022 USD)”: total government transfers (CAINC35 line code 1000) divided by geographic area population (BEA CAINC4, line code 20)
 
 
 “total income excluding government transfers (2022 USD)”: all categories of total income apart from government transfers. This includes:
 <ol>
-<li>Wages and salaries from all industries (CAINC4 line code 50) <\li>
-<li>Supplements to wages and salaries, covering employer payments made on behalf of employees such as employee pension and insurance funds as well as employer contributions for government social insurance. (CAINC4 line code 60) <\li>
-<li>Proprietors’ income for both farm and non-farm sole proprietorships, partnerships, and tax-exempt cooperatives. Excludes dividends, money interest from non-financial businesses, and rental income received by individuals not engaged in real estate (CAINC4 line code 70) <\li>
-<li>Rental income, dividends, interests, and rents (CAINC4 line code 46) <\li>
-<li>non-for-profits, and businesses. (CAINC4 line code 47 less of CAINC35 line code 1000) <\li>
-<\ol>
+<li>Wages and salaries from all industries (CAINC4 line code 50) </li>
+<li>Supplements to wages and salaries, covering employer payments made on behalf of employees such as employee pension and insurance funds as well as employer contributions for government social insurance. (CAINC4 line code 60) </li>
+<li>Proprietors’ income for both farm and non-farm sole proprietorships, partnerships, and tax-exempt cooperatives. Excludes dividends, money interest from non-financial businesses, and rental income received by individuals not engaged in real estate (CAINC4 line code 70) </li>
+<li>Rental income, dividends, interests, and rents (CAINC4 line code 46) </li>
+<li>non-for-profits, and businesses. (CAINC4 line code 47 less of CAINC35 line code 1000) </li>
+</ol>
 
 “per capita total income excluding government transfers (2022 USD)”: this is all non-transfer income as enumerated above divided by geographic area population (BEA CAINC4, line code 20)
 
@@ -113,7 +113,7 @@ Note: Connecticut’s 2022 boundary changes are not reflected by the Bureau of E
 
 ***
 
-<h2>TRANSFER SUB-CATEGORIES<h2>
+<h2>TRANSFER SUB-CATEGORIES/
 
 For simplicity, we do not report all sub-categories. Please see the BEA’s published files (linked above), or our expanded dataset available in the \data\ folder.
 
@@ -130,7 +130,7 @@ For simplicity, we do not report all sub-categories. Please see the BEA’s publ
 
 ***
 
-<h3>ADDITIONAL NOTES ON THE COMPONENTS OF GOVERNMENT TRANSFERS<h3>
+<h3>ADDITIONAL NOTES ON THE COMPONENTS OF GOVERNMENT TRANSFERS</h3>
 
 We follow the BEA’s transfer income categorizations throughout this report, which covers all "receipts of persons from government and business for which no current services are performed. Current transfer receipts from government include Social Security benefits, medical benefits, veterans' benefits, and unemployment insurance benefits. Current transfer receipts from business include liability payments for personal injury and corporate gifts to nonprofit institutions."
 
