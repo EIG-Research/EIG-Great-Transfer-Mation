@@ -25,7 +25,7 @@ The Bureau of Economic Analysis’s (BEA) [regional economic account files](http
 
 <h3>Metro status</h3>
 
-County metropolitan classifications are derived from the NCHS’ Rural-Urban Continuum Codes for 2023 [link](https://www.ers.usda.gov/data-products/rural-urban-continuum-codes.aspx). The categories used in this report are simplified from the NCHS’s scheme according to the method outlined in the “GEOGRAPHY AND TIME VARS” section below.
+County metropolitan classifications are derived from the NCHS’ [Rural-Urban Continuum Codes for 2023](https://www.ers.usda.gov/data-products/rural-urban-continuum-codes.aspx). The categories used in this report are simplified from the NCHS’s scheme according to the method outlined in the “GEOGRAPHY AND TIME VARS” section below.
 
 
 <h3>Old-age population</h3>
