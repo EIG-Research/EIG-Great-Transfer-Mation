@@ -37,7 +37,7 @@ library(tidycensus)
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
 path_data_population = file.path(path_data_raw, "population estimates")
-path_data_out = file.path(path_project,"data/clean")
+path_data_out = file.path(path_project,"data")
 
 ############################################
 ## load pop data - share of population > 65
