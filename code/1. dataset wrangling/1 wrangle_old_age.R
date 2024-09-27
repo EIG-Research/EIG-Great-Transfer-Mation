@@ -35,13 +35,14 @@ library(tidycensus)
 
 # set project paths
 path_project = "ENTER USER PROJECT PATH HERE"
-path_data_raw = file.path(path_project,"data/raw/population estimates")
+path_data_raw = file.path(path_project,"data/raw")
+path_data_population = file.path(path_data_raw, "population estimates")
 path_data_out = file.path(path_project,"data/clean")
 
 ############################################
 ## load pop data - share of population > 65
 ############################################
-setwd(path_data_raw)
+setwd(path_data_population)
 
 # 1970-1979
 # population by age, sex, race
