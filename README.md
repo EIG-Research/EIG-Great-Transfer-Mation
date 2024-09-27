@@ -179,7 +179,12 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
     <li>ct_planning_regions.xlsx: a list of CT planning regions</li>
     <li>fips_crosswalk.xlsx: VA fips crosswalk file for maping purposes</li>
     <li>bea</li>
-    <li>nchs</li>
+    <ol>
+      <li>BEA_deflator.xlsx: BEA data used to make inflation adjustments</li>
+      <li>CAINC35__ALL_AREAS_1969_2022.csv.zip: BEA CAINC35 file, for all geographic areas only. </li>
+      <li>CAINC4__ALL_AREAS_1969_2022.csv.zip: BEA CAINC4, for all geographic areas only.</li>
+    </ol>
+    <li>nchs: contains the NCHS urban-rural codes for 2023</li>
     <li>population estimates: contains all raw data files for annual population estiamtes. Note: due to Github file size restrictions, the 2011-2019 file is not uploaded. instructions on how to find this file are in "1 wrangle_old_age.R" </li>
     <li>poverty estimates: contains a ziped file of all census poverty estimates by county and decade.</li>
   </ol>
