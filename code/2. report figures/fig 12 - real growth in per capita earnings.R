@@ -14,13 +14,13 @@ library(matrixStats)
 
 path_project = "ENTER USER PROJECT PATH HERE
 path_data_raw = file.path(path_project,"data/raw")
-path_data_out = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data")
 path_out = file.path(path_project,"output")
 
 # load data
 
 # national growth rate
-read_excel(paste(path_data_out, "transfers_dataset_nation_master.xlsx", sep ="/")) %>%
+read_excel(paste(path_data_clean, "transfers_dataset_nation_master.xlsx", sep ="/")) %>%
   filter(year==1970 | year==2022) %>%
   mutate(net_earnings = net_earnings_pce_per_capita + 
            dividends_interest_rent_pce_per_capita) %>%
@@ -29,7 +29,7 @@ read_excel(paste(path_data_out, "transfers_dataset_nation_master.xlsx", sep ="/"
   mutate(difference = `2022`/`1970`)
   
 # net earnings + dividends, interest, rent
-df_transfers =  read_excel(paste(path_data_out, "transfers_dataset_counties_master.xlsx", sep ="/")) %>%
+df_transfers =  read_excel(paste(path_data_clean, "transfers_dataset_counties_master.xlsx", sep ="/")) %>%
   filter(year==1970 | year==2022) %>%
   mutate(net_earnings = net_earnings_pce_per_capita + 
            dividends_interest_rent_pce_per_capita) %>%
