@@ -22,16 +22,16 @@ library(broom)
 # paths
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_out = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data")
 path_out = file.path(path_project,"output")
 
-transfers = read_excel(paste(path_data_out, 
+transfers = read_excel(paste(path_data_clean, 
                              "transfers_dataset_counties_master.xlsx",
                              sep ="/")) %>%
   filter(!is.na(share_65_over))
 
 # poverty
-poverty = read.csv(paste(path_data_out, "poverty_rates.csv", sep ="/")) %>%
+poverty = read.csv(paste(path_data_clean, "poverty_rates.csv", sep ="/")) %>%
   mutate(GeoFIPS = str_pad(GeoFIPS, 5, pad="0")) %>%
   mutate(year = as.character(year))
 
