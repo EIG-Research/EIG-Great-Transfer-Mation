@@ -83,3 +83,21 @@ ggsave(plot = plot, filename = paste(path_out, "fig 1.png",sep="/"),
        bg="white",
        width = 10, height = 5,
        dpi = 1000)
+
+
+
+#######
+# for report, export figure data for datawrapper plot.
+panel1 = transfers %>%
+  select(year, 
+         transfers_govt_pce_per_capita_mutate, 
+         non_transfer_income_pce_per_capita_mutate)
+
+panel2 = transfers %>%
+  mutate(share_transfers_govt_personal_income=share_transfers_govt_personal_income*100) %>%
+  select(year, 
+         share_transfers_govt_personal_income)
+
+setwd(path_out)
+write.csv(panel1, "fig1_panel1.csv")
+write.csv(panel2, "fig1_panel2.csv")
