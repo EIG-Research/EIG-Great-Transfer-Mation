@@ -13,10 +13,10 @@ library(stringr)
 
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_out = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data")
 path_out = file.path(path_project,"output")
 
-transfers =  read.xlsx(paste(path_data_out, "transfers_dataset_counties_master.xlsx", sep ="/")) %>%
+transfers =  read.xlsx(paste(path_data_clean, "transfers_dataset_counties_master.xlsx", sep ="/")) %>%
   filter(GeoName == "Sarasota, FL" | GeoName == "Roscommon, MI") %>%
   mutate(non_transfer = personal_income_pce_per_capita-transfers_govt_pce_per_capita) %>%
   select(GeoName, year, transfers_govt_pce_per_capita, non_transfer)
