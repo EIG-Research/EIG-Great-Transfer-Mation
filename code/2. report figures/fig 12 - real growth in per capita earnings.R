@@ -12,7 +12,7 @@ library(readxl)
 library(stringr)
 library(matrixStats)
 
-path_project = "ENTER USER PROJECT PATH HERE
+path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
 path_data_clean = file.path(path_project,"data")
 path_out = file.path(path_project,"output")
