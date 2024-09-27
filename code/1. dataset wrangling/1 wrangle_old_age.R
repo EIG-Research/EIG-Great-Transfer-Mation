@@ -105,7 +105,7 @@ df_1990_to_1999 = df_1990_to_1999 %>%
 
 # 2000-2010
 df_2000_to_2010 <- read.csv("pop_2000_2010.csv") %>%
-  filter(AGEGRP !=0) %>%
+  filter(AGEGRP !=0 & SEX==0) %>%
   mutate(under_65 = 1*(AGEGRP<=13),
          FIPS = paste0(str_pad(STATE, 2, pad = "0"), str_pad(COUNTY, 3, pad = "0"))) %>%
   select(FIPS, under_65, POPESTIMATE2000, POPESTIMATE2001,
@@ -211,7 +211,6 @@ population = bind_rows(df_1970_to_1979, df_1980_to_1989,
   select(-c(population_under_65)) %>%
   rename(GeoFIPS = FIPS)
 
-population = population %>%  select(-c(total_population))
 
 rm(df_1970_to_1979, df_1980_to_1989,
    df_1990_to_1999, df_2000_to_2010,
@@ -220,3 +219,14 @@ rm(df_1970_to_1979, df_1980_to_1989,
 
 # save output
 write.xlsx(population, paste(path_data_out, "population_1970_to_2022.xlsx", sep = "/"))
+
+
+# national population data
+population_nation = population %>%
+  ungroup() %>%
+  group_by(year) %>%
+  summarise(total_population = sum(total_population, na.rm = TRUE),
+            population_over_65 = sum(population_over_65, na.rm = TRUE)) %>%
+  mutate(share_65_over = population_over_65/total_population)
+
+write.xlsx(population, paste(path_data_out, "population_nation_1970_to_2022.xlsx", sep = "/"))
