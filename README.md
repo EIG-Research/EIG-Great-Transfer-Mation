@@ -145,7 +145,7 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
       <li>3 wrangle_nation.R: constructs the main nation level dataset for the report</li>
       <li>4 wrangle_poverty.R: constructs a decade marked poverty estimate dataset</li>
     </ol>
-  <li>Report Figures: contains files constructing the repport figures of the same name. </li>
+  <li>Report Figures: contains files constructing the report figures of the same name. </li>
     <ol>
       <li>fig 1 - per capita transfers, non transfer income, transfer share.R</li>
        <li>fig 2 - transfer income by selected category.</li>
@@ -169,4 +169,10 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
       <li>Update Medicaid Expansion.R</li>
     </ol>
 <li>data</li>
+<ol>
+<li>county 2022 dataset.csv.zip: a cleaned dataset with key variables for all counties, 2022</li>
+<li>county.historical.dataset.csv.zip:a cleaned dataset with key variables for all counties, 1970-2022 </li>
+<li>nationwide dataset.csv.zip: a cleaned dataset with key variables for the nation overall, 1970-2022</li>
+  <li>raw</li>
+</ol>
 </ol>
