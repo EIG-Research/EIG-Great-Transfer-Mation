@@ -174,5 +174,14 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
 <li>county.historical.dataset.csv.zip:a cleaned dataset with key variables for all counties, 1970-2022 </li>
 <li>nationwide dataset.csv.zip: a cleaned dataset with key variables for the nation overall, 1970-2022</li>
   <li>raw</li>
+  <ol>
+    <li>ZIP-toPlanningRegion.xlsx: zip codes to planning regions for CT</li>
+    <li>ct_planning_regions.xlsx: a list of CT planning regions</li>
+    <li>fips_crosswalk.xlsx: VA fips crosswalk file for maping purposes</li>
+    <li>bea</li>
+    <li>nchs</li>
+    <li>population estimates: contains all raw data files for annual population estiamtes. Note: due to Github file size restrictions, the 2011-2019 file is not uploaded. instructions on how to find this file are in "1 wrangle_old_age.R" </li>
+    <li>poverty estimates: contains a ziped file of all census poverty estimates by county and decade.</li>
+  </ol>
 </ol>
 </ol>
