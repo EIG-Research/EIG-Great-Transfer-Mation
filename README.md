@@ -160,6 +160,7 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
        <li>fig 11 - trends in government transfers and non transfer income for selected aging counties.R</li>
        <li>fig 12 - real growth in per capita earnings.R</li>
        <li>fig 13- 14 -  non transfer income and government transfers per capital muncie and johnstown.R</li>
+    </ol>
   <li>Regressions: code underlying the regressions and random forest components.</li>
     </ol>
       <li>Change from 1970 to 2022.R</li>
