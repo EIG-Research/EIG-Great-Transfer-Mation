@@ -138,12 +138,28 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
 <ol>
 <li> code </li>
   <ol>
-  <li>Report Figures</li>
+  <li>Dataset Wrangling</li>
     <ol>
-      <li>1 wrangle_old_age.R</li>
-      <li>2 wrangle_county.R</li>
-      <li>3 wrangle_nation.R</li>
-      <li>4 wrangle_poverty.R</li>
+      <li>1 wrangle_old_age.R: constructs county-level and nation-level population share 65+</li>
+      <li>2 wrangle_county.R: constructs the main county level dataset for the report</li>
+      <li>3 wrangle_nation.R: constructs the main nation level dataset for the report</li>
+      <li>4 wrangle_poverty.R: constructs a decade marked poverty estimate dataset</li>
+    </ol>
+  <li>Report Figures: contains files constructing the repport figures of the same name. </li>
+    <ol>
+      <li>fig 1 - per capita transfers, non transfer income, transfer share.R</li>
+       <li>fig 2 - transfer income by selected category.</li>
+       <li>fig 3 - per capita income from selected transfer programs.R</li>
+       <li>fig 4 - share of transfer income from key safety net programs.R</li>
+       <li>fig 5 - distribution of transfer incomes and non transfer incomes.R</li>
+       <li>fig 6 - proportion of us counties by transfer share of total personal income.R</li>
+       <li>fig 7 - counties by transfer tier quad map.R</li>
+       <li>fig 8 - government transfers as a share of total income.R</li>
+       <li>fig 9 - share of counties in each transfer tier by metro status.R</li>
+       <li>fig 10 - per capita transfers versus selected socioeconomic indicators.R</li>
+       <li>fig 11 - trends in government transfers and non transfer income for selected aging counties.R</li>
+       <li>fig 12 - real growth in per capita earnings.R</li>
+       <li>fig 13- 14 -  non transfer income and government transfers per capital muncie and johnstown.R</li>
     </ol>
   <li>Regressions</li>
     </ol>
