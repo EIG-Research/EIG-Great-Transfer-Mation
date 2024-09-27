@@ -42,6 +42,11 @@ df_cainc35 <- read.csv(paste(path_data_raw, "bea/CAINC35__ALL_AREAS_1969_2022.cs
 
 df_bea = bind_rows(df_cainc4, df_cainc35) # includes United States totals
 
+df_bea = df_bea %>%
+  filter(GeoName=="United States") %>%
+  filter(year>1969)
+
+
 # reshape
 df_bea = df_bea %>%
   pivot_longer(
@@ -159,14 +164,6 @@ df_bea =  df_bea %>% mutate(GeoFIPS = str_trim(GeoFIPS), year = str_trim(year))
 
 df_bea = left_join(df_bea, population_old, by = c("year"))
 
-
-################
-# data edits
-
-# drop non USA observations, drop 1969
-df_bea = df_bea %>%
-  filter(GeoName=="United States") %>%
-  filter(year>1969)
 
 # export data set
 write.xlsx(df_bea, paste(path_data_clean, 'transfers_dataset_nation_master.xlsx', sep = "/"))
