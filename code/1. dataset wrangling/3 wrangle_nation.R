@@ -24,7 +24,7 @@ library(stringr)
 # project paths
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_out = file.path(path_project,"data")
+path_data_clean = file.path(path_project,"data")
 
 # load data and select desired line codes. combine.
 linecodes_c4 = c("10", "20", "45", "46", "47","50","7010")
@@ -151,7 +151,7 @@ df_bea = df_bea %>%
 #######
 # merge in old age estimates. from wrangle_old_age.R
 
-population_old = read_excel(paste(path_data_out, 
+population_old = read_excel(paste(path_data_clean, 
                                   "population_nation_1970_to_2022.xlsx", sep = "/")) %>%
   mutate(year= str_trim(year))
 
@@ -169,4 +169,4 @@ df_bea = df_bea %>%
   filter(year>1969)
 
 # export data set
-write.xlsx(df_bea, paste(path_data_out, 'transfers_dataset_nation_master.xlsx', sep = "/"))
+write.xlsx(df_bea, paste(path_data_clean, 'transfers_dataset_nation_master.xlsx', sep = "/"))
