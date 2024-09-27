@@ -21,4 +21,4 @@ transfers = read_excel(paste(path_data_clean, "transfers_dataset_nation_master.x
   select(year, all_other, transfers_govt_pce, transfers_social_security_pce, transfers_medicare_pce, transfers_medicaid_pce, transfers_unempl_insurance_pce, transfers_income_maintenance_pce)
 
 # save for datawrapper plot
-write.xlsx(transfers, paste(path_out, "fig 2", sep="/"))
+write.xlsx(transfers, paste(path_out, "fig 2.xlsx", sep="/"))
