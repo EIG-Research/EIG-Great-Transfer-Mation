@@ -105,7 +105,7 @@ df_bea = df_bea %>%
 
 #######
 # read in PCE deflator for inflation adjustments. all dollars to be expressed in 2022 USD.
-df_pce = read_excel(paste(path_data_raw, "bea/BEA_deflator_danny.xlsx", sep = "/")) %>% 
+df_pce = read_excel(paste(path_data_raw, "bea/BEA_deflator.xlsx", sep = "/")) %>% 
   rename(year = names(.)[1],
          pce_deflator = names(.)[3]) %>%
   select(-c("Gross domestic product")) %>%
