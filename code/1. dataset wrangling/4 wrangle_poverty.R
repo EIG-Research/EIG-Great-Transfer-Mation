@@ -22,8 +22,7 @@ library(tidycensus)
 # set project paths
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw/poverty estimates")
-path_data_out = file.path(path_project,"data")
-path_out = file.path(path_project,"output")
+path_data_clean = file.path(path_project,"data")
 
 setwd(path_data_raw)
 
@@ -104,4 +103,4 @@ p2022 = read_excel("est22all.xls",
 poverty = bind_rows(p1970, p1980, p1990, p2000, p2010, p2020, p2022) %>%
   mutate(GeoFIPS = str_pad(GeoFIPS, 5, pad="0"))
 
-write.csv(poverty, paste(path_data_out, "poverty_rates.csv", sep="/"))
+write.csv(poverty, paste(path_data_clean, "poverty_rates.csv", sep="/"))
