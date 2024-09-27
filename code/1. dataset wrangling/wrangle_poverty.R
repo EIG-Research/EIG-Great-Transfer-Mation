@@ -27,6 +27,10 @@ path_out = file.path(path_project,"output/figure data")
 
 setwd(path_data_raw)
 
+##############
+# read in data
+
+# 1970
 p1970 = read_excel("1970-Census-by-County.xls",
                    skip = 4) %>%
   filter(!is.na(State)) %>%
@@ -35,6 +39,7 @@ p1970 = read_excel("1970-Census-by-County.xls",
   mutate(`Percent below poverty level` = round(as.numeric(`Percent below poverty level`),2),
          year = 1970)
 
+# 1980
 p1980 = read_excel("1980-Census-by-County.xls",
                    skip = 4) %>%
   filter(!is.na(State)) %>%
@@ -43,6 +48,7 @@ p1980 = read_excel("1980-Census-by-County.xls",
   mutate(`Percent below poverty level` = round(as.numeric(`Percent below poverty level`),2),
          year = 1980)
 
+# 1990
 p1990 = read_excel("1990-Census-by-County.xls",
                    skip = 4)%>%
   filter(!is.na(STATE)) %>%
@@ -55,6 +61,7 @@ p1990 = read_excel("1990-Census-by-County.xls",
   mutate(`Percent below poverty level` = round(as.numeric(`Percent below poverty level`),2),
          year = 1990)
 
+# 2000
 p2000 = read_excel("2000-Census-by-County.xls",
                    skip = 4) %>%
   filter(!is.na(State)) %>%
