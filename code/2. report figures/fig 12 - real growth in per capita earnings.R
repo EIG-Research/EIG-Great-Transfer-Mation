@@ -14,6 +14,7 @@ library(tidyr)
 library(openxlsx)
 library(readxl)
 library(stringr)
+library(matrixStats)
 
 path_project = "ENTER USER PROJECT PATH HERE
 path_data_raw = file.path(path_project,"data/raw")
@@ -52,29 +53,48 @@ df_per_cap = df_transfers %>%
   mutate(earnings_change = earnings_2022/earnings_1970) %>%
   mutate(earnings_change = ifelse(earnings_change>6, NA, earnings_change))
 
-unique(df_per_cap$transfer_tiers)
 
-colors = c("high transfer tier (25%+)" = "#e1ad28", "mid transfer tier (15-25%)" = "#b3d6dd",
-           "low transfer tier (0-15%)" = "#1a654d")
 
-# color plot
-png(paste(path_out,"full_histogram.png",sep="/"))
+# set color scheme
+colors = c("significant (25%+)" = "#e1ad28", "moderate (15-24.9%)" = "#b3d6dd",
+           "minimal (<15%)" = "#1a654d")
 
-ggplot(df_per_cap, aes(x=earnings_change, fill = transfer_tiers)) +
-  geom_histogram(alpha = 0.6) +
-  geom_vline(xintercept = 2.38) + # is this right?
-  theme_classic() +
-  scale_fill_manual(values = colors) +
-  xlab("Net earnings (2022/1970)") +
-  labs(title ="Growth in Per-Capita Net Earnings 1970-2022", fill="")
+#########################
+# plots by earnings tier.
+#########################
 
-dev.off()
+###################################
+# histogram exports for datawrapper
+df_per_cap_binned = df_per_cap %>%
+  na.omit() %>%
+  ungroup() %>%
+  group_by(transfer_tiers) %>%
+  mutate(bin = cut(earnings_change, breaks = 30)) %>%
+  group_by(transfer_tiers, bin) %>%
+  summarise(count = n())
 
-########################################
-# by earnings tier.
+      df_sig = df_per_cap_binned %>%  
+        filter(transfer_tiers=="significant (25%+)") %>%
+            select(bin, count)
+      
+      df_mod = df_per_cap_binned %>%  
+        filter(transfer_tiers=="moderate (15-24.9%)") %>%
+            select(bin, count)
+      
+      df_min = df_per_cap_binned %>%  
+        filter(transfer_tiers=="minimal (<15%)") %>%
+              select(bin, count)
 
+# export
+  write.xlsx(df_sig, "fig12_panel1.xlsx")
+  write.xlsx(df_mod, "fig12_panel2.xlsx")
+  write.xlsx(df_min, "fig12_panel3.xlsx")
+
+
+#################
+# build plot in R
 plot1 <-  df_per_cap %>%
-  filter(transfer_tiers=="high transfer tier (25%+)") %>%
+  filter(transfer_tiers=="significant (25%+)") %>%
   mutate(lag = earnings_change<2.38) %>%
   ggplot(aes(x=earnings_change)) +
   geom_histogram(alpha = 0.5, color = "#e1ad28", fill = "#e1ad28") +
@@ -89,10 +109,9 @@ plot1 <-  df_per_cap %>%
         axis.text.y = element_text(size=12, color ="darkgrey"),
         plot.subtitle = element_text(face="bold", size = 12),
         axis.title.y = element_text(size = 12, color = "darkgrey"))
-plot1
 
 plot2 <- df_per_cap %>%
-  filter(transfer_tiers=="mid transfer tier (15-25%)") %>%
+  filter(transfer_tiers=="moderate (15-24.9%)") %>%
   ggplot(aes(x=earnings_change)) +
   geom_histogram(alpha = 0.8, color = "#b3d6dd", fill = "#b3d6dd") +
   geom_vline(xintercept = 2.38) +
@@ -106,10 +125,8 @@ plot2 <- df_per_cap %>%
         axis.title.y = element_blank(),
         plot.subtitle = element_text(face="bold", size = 12))
 
-plot2
-
 plot3 <- df_per_cap %>%
-  filter(transfer_tiers=="low transfer tier (0-15%)") %>%
+  filter(transfer_tiers=="minimal (<15%)") %>%
   mutate(earnings_change = ifelse(earnings_change>6, NA, earnings_change))%>%
   mutate(lag = earnings_change<2.38) %>%
   ggplot(aes(x=earnings_change)) +
@@ -125,8 +142,6 @@ plot3 <- df_per_cap %>%
         axis.title.y = element_blank(),
         plot.subtitle = element_text(face="bold", size = 12))
 
-plot3
-
 require(gridExtra)
 library(grid)
 plot = grid.arrange(plot1, plot2,plot3, ncol=3, 
@@ -139,7 +154,5 @@ plot = grid.arrange(plot1, plot2,plot3, ncol=3,
                                             gp = grid::gpar(fontsize = 10, col="black")))
 
 
-
 ggsave(plot = plot, paste(path_out, "fig 12.png",sep="/"),
        width = 10, height = 6)
-
