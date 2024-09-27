@@ -10,10 +10,10 @@ library(readxl)
 
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_out = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data")
 path_out = file.path(path_project,"output")
 
-df_transfers =  read_excel(paste(path_data_out, "transfers_dataset_counties_master.xlsx", sep ="/")) %>%
+df_transfers =  read_excel(paste(path_data_clean, "transfers_dataset_counties_master.xlsx", sep ="/")) %>%
   filter(GeoName == "Cambria, PA" | GeoName == "Delaware, IN") %>%
   mutate(non_transfers = # non-transfer income
            personal_income_pce_per_capita-
@@ -22,7 +22,7 @@ df_transfers =  read_excel(paste(path_data_out, "transfers_dataset_counties_mast
   select(GeoName, year, transfers, non_transfers)
 
 # need united states
-df_transfers_USA =read_excel(paste(path_data_out, "transfers_dataset_nation_master.xlsx", sep ="/")) %>%
+df_transfers_USA =read_excel(paste(path_data_clean, "transfers_dataset_nation_master.xlsx", sep ="/")) %>%
   mutate(non_transfers = # non-transfer income
            personal_income_pce_per_capita-
            transfers_govt_pce_per_capita) %>%
