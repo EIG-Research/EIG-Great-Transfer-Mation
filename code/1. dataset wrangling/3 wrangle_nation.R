@@ -34,9 +34,6 @@ linecodes_c35 = c("2000", "2100", "2110", "2200", "2210", "2220", "2230",
                   "2500", "2600", "2700", "5000", "3000", "4000")
 
 
-# NOTE: CAINC4 IS TO LARGE A FILE FOR GITHUB, DOWNLOAD FROM THE BEA WEBSITE HERE:
-# https://apps.bea.gov/regional/downloadzip.cfm, under "Personal Income"
-
 df_cainc4 <- read.csv(paste(path_data_raw, "bea/CAINC4__ALL_AREAS_1969_2022.csv", sep = "/")) %>%
   filter(LineCode %in% linecodes_c4) # includes United States totals
 
