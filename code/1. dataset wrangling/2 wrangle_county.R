@@ -189,7 +189,7 @@ df_bea = df_bea %>%
 #######
 # merge in old-age population share. from wrangle_old_age.do
 
-population_old = read_excel(paste(path_data_out, 
+population_old = read_excel(paste(path_data_clean, 
                                   "population_1970_to_2022.xlsx", sep = "/"))%>%
   mutate(GeoFIPS = str_trim(GeoFIPS), year= str_trim(year))
 
