@@ -22,7 +22,7 @@ library(stringr)
 # project paths
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_ = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data/clean")
 
 # load data and select desired line codes. combine.
 linecodes_c4 = c("10", "20", "45", "46", "47","50","7010")
@@ -30,6 +30,7 @@ linecodes_c4 = c("10", "20", "45", "46", "47","50","7010")
 linecodes_c35 = c("2000", "2100", "2110", "2200", "2210", "2220", "2230", 
                   "2300", "2310", "2320", "2330", "2340", "2400", "2410", 
                   "2500", "2600", "2700", "5000", "3000", "4000")
+
 
 df_cainc4 <- read.csv(paste(path_data_raw, "bea/CAINC4__ALL_AREAS_1969_2022.csv", sep = "/")) %>%
   filter( # includes United States totals
@@ -93,22 +94,11 @@ df_bea = df_bea %>%
     transfers_businesses = `4000`) %>%
   separate(GeoName,c("county", "state"), sep = ",", remove = FALSE) %>% select(-c("county"))
 
-# re-order columns
-df_bea = df_bea %>%
-  select("GeoFIPS","GeoName","state", "year", "population","total_employment",
-         "personal_income","net_earnings","dividends_interest_rent",
-         "transfers_all", "wages_and_salaries","transfers_govt",
-         "transfers_retirement_disability", "transfers_social_security",
-         "transfers_medical","transfers_medicare","transfers_medicaid",
-         "transfers_medical_military","transfers_income_maintenance","transfers_ssi",
-         "transfers_eitc","transfers_snap","transfers_income_maintenance_other",
-         "transfers_unempl_insurance","transfers_state_unempl_insurance","transfers_veterans",
-         "transfers_education_training", "transfers_other","tranfers_non_for_profits",
-         "transfers_businesses","transfers_refundable_tax_credits")
 
 
+#######
+# fix naming issues
 
-######## fix naming issues
 transfers = transfers %>%
   mutate(GeoName = gsub("\\*", "", GeoName),
          state= gsub("\\*", "", state),
@@ -127,7 +117,7 @@ transfers = transfers %>%
 
 
 #######
-# PCE deflator transformations
+# load PCE deflator for inflation adjustments - all dollars to be expressed in 2022 USD
 df_pce = read_excel(paste(path_data_raw, "bea/BEA_deflator.xlsx", sep = "/")) %>% 
   rename(year = names(.)[1],
          pce_deflator = names(.)[3]) %>%
@@ -137,10 +127,12 @@ df_pce = read_excel(paste(path_data_raw, "bea/BEA_deflator.xlsx", sep = "/")) %>
 df_bea = left_join(df_bea, df_pce, by = "year") # ensures no drops
 
 
+
+#######
 # transformations for every variable.
 transform_vars = names(df_bea)[7:32]
 
-# PCE
+# inflation
 df_bea = df_bea %>%
   mutate(across(transform_vars, 
                 ~./pce_deflator_2022*100,
@@ -152,7 +144,7 @@ df_bea = df_bea %>%
                 ~./population,
                 .names = "{.col}_per_capita"))
 
-# per capita pce transformation
+# per capita inflation transformation
 df_bea = df_bea %>%
   mutate(across(transform_vars, 
                 ~./pce_deflator_2022*100/population,
@@ -163,13 +155,14 @@ df_bea = df_bea %>%
   mutate(employ_to_pop_ratio = total_employment/population,
          share_transfers_govt_personal_income =  transfers_govt/personal_income, # the main ratio in question
          transfer_tiers = case_when(
-           share_transfers_govt_personal_income<0.15 ~ "low transfer tier (0-15%)",
+           share_transfers_govt_personal_income<0.15 ~ "minimal (<15%)",
            share_transfers_govt_personal_income >=0.15 & 
-             share_transfers_govt_personal_income <0.25 ~ "mid transfer tier (15-25%)",
-           share_transfers_govt_personal_income >=0.25 ~ "high transfer tier (25%+)"))
+             share_transfers_govt_personal_income <0.25 ~ "moderate (15-24.9%)",
+           share_transfers_govt_personal_income >=0.25 ~ "significant (25%+)"))
 
 
-################
+
+#######
 # fix VA FIPS codes
 # note: CT not updated. when mapping, use a historical US county map overlay. 
 fips_crosswalk = read_excel(paste(path_data_raw, "fips_crosswalk.xlsx", sep="/"))
@@ -182,8 +175,9 @@ df_bea = df_bea %>%
   select(-c("new_FIPS", "error_FIPS"))
 
 
-####################
-# merge in old-age share.
+#######
+# merge in old-age population share. from wrangle_old_age.do
+
 population_old = read_excel(paste(path_data_out, 
                                   "population_1970_to_2022.xlsx", sep = "/"))%>%
   mutate(GeoFIPS = str_trim(GeoFIPS), year= str_trim(year))
@@ -193,7 +187,7 @@ df_bea =  df_bea %>% mutate(GeoFIPS = str_trim(GeoFIPS), year = str_trim(year))
 df_bea = left_join(df_bea, population_old, by = c("year", "GeoFIPS"))
 
 
-####################
+#######
 # merge in MSA codes
 classification = read_excel(paste(path_data_raw, "nchs/Ruralurbancontinuumcodes2023.xlsx",
                                   sep = "/")) %>%
