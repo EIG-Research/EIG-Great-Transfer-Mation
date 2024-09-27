@@ -46,13 +46,36 @@ scatter_dynamic = transfers %>%
               names_from = year,
               values_from = c("share_65_over",
                               "Percent.below.poverty.level",
-                              "transfers_govt_pce_per_capita"))%>%
-  mutate(Percent.below.poverty.level_2022 = Percent.below.poverty.level_2022/100,
-         Percent.below.poverty.level_1970=Percent.below.poverty.level_1970/100) %>%
+                              "transfers_govt_pce_per_capita")) %>%
   mutate(pov = (Percent.below.poverty.level_2022-Percent.below.poverty.level_1970)/Percent.below.poverty.level_1970,
-         old = (share_65_over_2022-share_65_over_1970)/share_65_over_1970,
-         transfer = (transfers_govt_pce_per_capita_2022-transfers_govt_pce_per_capita_1970)/transfers_govt_pce_per_capita_1970)
+         old = 100*(share_65_over_2022-share_65_over_1970)/share_65_over_1970,
+         transfer = 100*(transfers_govt_pce_per_capita_2022-transfers_govt_pce_per_capita_1970)/transfers_govt_pce_per_capita_1970) %>%
+mutate(share_65_over_2022 = share_65_over_2022*100)
 
+
+##############################
+# export data for datawrapper figure making
+panel1 = scatter_dynamic %>%
+  select(share_65_over_2022, transfers_govt_pce_per_capita_2022)
+
+panel2 = scatter_dynamic %>%
+  select(Percent.below.poverty.level_2022, transfers_govt_pce_per_capita_2022)
+
+panel3 = scatter_dynamic %>%
+  select(old, transfer)
+
+panel4 = scatter_dynamic %>%
+  select(pov, transfer)
+
+    write.xlsx(panel1, paste(path_out, "fig10_panel1.xlsx", sep="/"))
+    write.xlsx(panel2, paste(path_out, "fig10_panel2.xlsx", sep="/"))
+    write.xlsx(panel3, paste(path_out, "fig10_panel3.xlsx", sep="/"))
+    write.xlsx(panel4, paste(path_out, "fig10_panel4.xlsx", sep="/"))
+
+
+
+####################################
+# graph of figure 10, R version.
 
 # static - old
 old_age_2022 = ggplot(scatter_dynamic, 
