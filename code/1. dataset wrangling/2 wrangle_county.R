@@ -94,11 +94,23 @@ df_bea = df_bea %>%
   separate(GeoName,c("county", "state"), sep = ",", remove = FALSE) %>% select(-c("county"))
 
 
+df_bea = df_bea %>%
+  select("GeoFIPS","GeoName","state", "year", "population","total_employment",
+         "personal_income","net_earnings","dividends_interest_rent",
+         "transfers_all", "wages_and_salaries","transfers_govt",
+         "transfers_retirement_disability", "transfers_social_security",
+         "transfers_medical","transfers_medicare","transfers_medicaid",
+         "transfers_medical_military","transfers_income_maintenance","transfers_ssi",
+         "transfers_eitc","transfers_snap","transfers_income_maintenance_other",
+         "transfers_unempl_insurance","transfers_state_unempl_insurance","transfers_veterans",
+         "transfers_education_training", "transfers_other","tranfers_non_for_profits",
+         "transfers_businesses","transfers_refundable_tax_credits")
+
 
 #######
 # fix naming issues
 
-transfers = transfers %>%
+df_bea = df_bea %>%
   mutate(GeoName = gsub("\\*", "", GeoName),
          state= gsub("\\*", "", state),
          state = ifelse(state ==" Colonial Heights + Petersburg", "VA", state),
