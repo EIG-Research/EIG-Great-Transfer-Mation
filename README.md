@@ -161,7 +161,12 @@ To view the detailed BEA discussion on concepts and methods to identity the cate
        <li>fig 12 - real growth in per capita earnings.R</li>
        <li>fig 13- 14 -  non transfer income and government transfers per capital muncie and johnstown.R</li>
     </ol>
-  <li>Regressions</li>
+  <li>Regressions: code underlying the regressions and random forest components. </li>
     </ol>
-<ol>data</ol>
+      <li>Change from 1970 to 2022.R</li>
+      <li>Update Decomposition by decade.R</li>
+      <li>Update Effect of Recessions.R</li>
+      <li>Update Medicaid Expansion.R</li>
+    </ol>
+<li>data</li>
 </ol>
