@@ -22,7 +22,7 @@ library(stringr)
 # project paths
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_clean = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data")
 
 # load data and select desired line codes. combine.
 linecodes_c4 = c("10", "20", "45", "46", "47","50","7010")
