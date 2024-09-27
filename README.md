@@ -129,3 +129,23 @@ For simplicity, we do not report all sub-categories. Please see the BEA’s publ
 We follow the BEA’s transfer income categorizations throughout this report, which covers all "receipts of persons from government and business for which no current services are performed. Current transfer receipts from government include Social Security benefits, medical benefits, veterans' benefits, and unemployment insurance benefits. Current transfer receipts from business include liability payments for personal injury and corporate gifts to nonprofit institutions."
 
 To view the detailed BEA discussion on concepts and methods to identity the categorization and inclusion of specific programs, please see the Bureau of Economic Analysis [State Personal Income and Employment: Concepts and Methods document](https://www.bea.gov/system/files/methodologies/SPI-Methodology.pdf), page 59 under the section Current Transfer Receipts of Individuals from Governments.
+
+
+***
+
+<h2>FILE CONTENTS</h2>
+
+<ol>
+<li> code </li>
+  <ol>
+  <li>Report Figures</li>
+    <ol>
+      <li>1 wrangle_old_age.R</li>
+      <li>2 wrangle_county.R</li>
+      <li>3 wrangle_nation.R</li>
+      <li>4 wrangle_poverty.R</li>
+    </ol>
+  <li>Regressions</li>
+    </ol>
+<ol>data</ol>
+</ol>
