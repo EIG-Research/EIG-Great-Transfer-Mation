@@ -22,8 +22,8 @@ library(tidycensus)
 # set project paths
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw/poverty estimates")
-path_data_out = file.path(path_project,"data/clean")
-path_out = file.path(path_project,"output/figure data")
+path_data_out = file.path(path_project,"data")
+path_out = file.path(path_project,"output")
 
 setwd(path_data_raw)
 
