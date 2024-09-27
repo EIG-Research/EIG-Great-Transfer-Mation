@@ -123,6 +123,10 @@ df_2000_to_2010 <- read.csv("pop_2000_2010.csv") %>%
 
 
 # 2011-2019
+# NOTE -- CC-EST2020-ALLDATA.csv IS TOO LARGE AFTER COMPRESSION FOR GITHUB STORAGE.
+# FIND THE FILE HERE:
+# https://www.census.gov/data/datasets/time-series/demo/popest/intercensal-2000-2010-counties.html
+
 df_2011_2019 = read.csv("CC-EST2020-ALLDATA.csv") %>%
   mutate(year = case_when(
     YEAR==4 ~ 2011,
