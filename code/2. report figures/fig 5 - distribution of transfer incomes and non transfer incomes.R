@@ -14,10 +14,10 @@ library(stringr)
 
 path_project = "ENTER USER PROJECT PATH HERE"
 path_data_raw = file.path(path_project,"data/raw")
-path_data_out = file.path(path_project,"data/clean")
+path_data_clean = file.path(path_project,"data")
 path_out = file.path(path_project,"output")
                      
-plot = read_excel(paste(path_data_out, "transfers_dataset_counties_master.xlsx", sep = "/")) %>%
+plot = read_excel(paste(path_data_clean, "transfers_dataset_counties_master.xlsx", sep = "/")) %>%
   filter(year==2022) %>%
   mutate(income_no_transfers = personal_income_pce_per_capita - transfers_govt_pce_per_capita) %>%
   mutate(transfer_income = personal_income_pce_per_capita-income_no_transfers) %>%
