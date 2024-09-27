@@ -41,7 +41,7 @@ df_cainc35 <- read.csv(paste(path_data_raw, "bea/CAINC35__ALL_AREAS_1969_2022.cs
   filter(LineCode %in% linecodes_c35)
 
 df_bea = bind_rows(df_cainc4, df_cainc35) %>% # includes United States totals
-  filter(GeoFIPS == "00000")
+  filter(GeoName == "United States")
 
 # reshape
 df_bea = df_bea %>%
