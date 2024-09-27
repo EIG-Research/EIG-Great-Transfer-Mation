@@ -1,9 +1,5 @@
 # 12 histograms of wage growth
 
-# aim: argue that this is not just a federal-government-is-more-generous argument.
-# talk about real wage growth.
-# how many places had real wage growth over the period?
-
 # remove dependencies
 rm(list = ls())
 
