@@ -155,12 +155,16 @@ df_bea = df_bea %>%
 
 population_old = read_excel(paste(path_data_clean, 
                                   "population_nation_1970_to_2022.xlsx", sep = "/")) %>%
-  mutate(year= str_trim(year))
+  mutate(year= str_trim(year)) %>%
+  group_by(year) %>%
+  summarise(population_over_65 = sum(population_over_65, na.rm = TRUE),
+            total_population = sum(total_population, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(share_65_over = population_over_65/total_population)
 
 df_bea =  df_bea %>% mutate(GeoFIPS = str_trim(GeoFIPS), year = str_trim(year))
 
 df_bea = left_join(df_bea, population_old, by = c("year"))
-
 
 # export data set
 write.xlsx(df_bea, paste(path_data_clean, 'transfers_dataset_nation_master.xlsx', sep = "/"))
