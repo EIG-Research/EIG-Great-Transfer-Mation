@@ -27,8 +27,8 @@ if (!current_user %in% names(project_directories)) {
 path_project <- project_directories[[current_user]]
 
 # Define paths to data and output directories
-path_data <- file.path(path_project, "Data")
-path_output <- file.path(path_project, "Output")
+path_data <- file.path(path_project, "data")
+path_output <- file.path(path_project, "output")
 
 
 # Set working directory for CEPR data
