@@ -89,22 +89,8 @@ df_bea = df_bea %>%
   separate(GeoName,c("county", "state"), sep = ",", remove = FALSE) %>% select(-c("county"))
 
 
-# re-order columns
-df_bea = df_bea %>%
-  select("GeoFIPS","GeoName","state", "year", "population","total_employment",
-         "personal_income","net_earnings","dividends_interest_rent",
-         "transfers_all", "wages_and_salaries","transfers_govt",
-         "transfers_retirement_disability", "transfers_social_security",
-         "transfers_medical","transfers_medicare","transfers_medicaid",
-         "transfers_medical_military","transfers_income_maintenance","transfers_ssi",
-         "transfers_eitc","transfers_snap","transfers_income_maintenance_other",
-         "transfers_unempl_insurance","transfers_state_unempl_insurance","transfers_veterans",
-         "transfers_education_training", "transfers_other","tranfers_non_for_profits",
-         "transfers_businesses","transfers_refundable_tax_credits")
-
-
 #######
-# PCE deflator transformations
+# read in PCE deflator for inflation adjustments. all dollars to be expressed in 2022 USD.
 df_pce = read_excel(paste(path_data_raw, "bea/BEA_deflator_danny.xlsx", sep = "/")) %>% 
   rename(year = names(.)[1],
          pce_deflator = names(.)[3]) %>%
@@ -114,10 +100,11 @@ df_pce = read_excel(paste(path_data_raw, "bea/BEA_deflator_danny.xlsx", sep = "/
 df_bea = left_join(df_bea, df_pce, by = "year") # ensures no drops
 
 
+#######
 # transformations for every variable.
 transform_vars = names(df_bea)[7:32]
 
-# PCE
+# inflation
 df_bea = df_bea %>%
   mutate(across(transform_vars, 
                 ~./pce_deflator_2022*100,
@@ -135,18 +122,20 @@ df_bea = df_bea %>%
                 ~./pce_deflator_2022*100/population,
                 .names = "{.col}_pce_per_capita"))
 
+#######
 # additional variables required
 df_bea = df_bea %>%
   mutate(employ_to_pop_ratio = total_employment/population,
          share_transfers_govt_personal_income =  transfers_govt/personal_income, # the main ratio in question
          transfer_tiers = case_when(
-           share_transfers_govt_personal_income<0.15 ~ "low transfer tier (0-15%)",
+           share_transfers_govt_personal_income<0.15 ~ "minimal (<15%)",
            share_transfers_govt_personal_income >=0.15 & 
-             share_transfers_govt_personal_income <0.25 ~ "mid transfer tier (15-25%)",
-           share_transfers_govt_personal_income >=0.25 ~ "high transfer tier (25%+)"))
+             share_transfers_govt_personal_income <0.25 ~ "moderate (15-24.9%)",
+           share_transfers_govt_personal_income >=0.25 ~ "significant (25%+)"))
 
 
-# merge in old age estimates
+#######
+# merge in old age estimates. from wrangle_old_age.R
 
 population_old = read_excel(paste(path_data_out, 
                                   "population_nation_1970_to_2022.xlsx", sep = "/")) %>%
