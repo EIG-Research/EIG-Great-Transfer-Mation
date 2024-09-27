@@ -42,11 +42,6 @@ df_cainc35 <- read.csv(paste(path_data_raw, "bea/CAINC35__ALL_AREAS_1969_2022.cs
 
 df_bea = bind_rows(df_cainc4, df_cainc35) # includes United States totals
 
-df_bea = df_bea %>%
-  filter(GeoName=="United States") %>%
-  filter(year>1969)
-
-
 # reshape
 df_bea = df_bea %>%
   pivot_longer(
@@ -96,6 +91,8 @@ df_bea = df_bea %>%
 
 
 df_bea = df_bea %>%
+  filter(GeoName=="United States") %>%
+  filter(year>1969) %>%
   select("GeoFIPS","GeoName","state", "year", "population","total_employment",
          "personal_income","net_earnings","dividends_interest_rent",
          "transfers_all", "wages_and_salaries","transfers_govt",
