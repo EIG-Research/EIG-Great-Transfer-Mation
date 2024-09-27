@@ -116,7 +116,7 @@ df_bea = left_join(df_bea, df_pce, by = "year") # ensures no drops
 
 #######
 # transformations for every variable.
-transform_vars = names(df_bea)[7:32]
+transform_vars = df_bea %>% select(personal_income:transfers_refundable_tax_credits) %>% names()
 
 # inflation
 df_bea = df_bea %>%
