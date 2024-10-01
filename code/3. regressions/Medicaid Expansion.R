@@ -14,9 +14,7 @@ set.seed(42)
 #################
 # Define user-specific project directories
 project_directories <- list(
-  "bglasner" = "C:/Users/bglasner/EIG Dropbox/Benjamin Glasner/GitHub/transfer-income",
-  "bngla" = "C:/Users/bngla/EIG Dropbox/Benjamin Glasner/GitHub/transfer-income",
-  "Benjamin Glasner" = "C:/Users/Benjamin Glasner/EIG Dropbox/Benjamin Glasner/GitHub/transfer-income"
+  "USER" = "PATH",
 )
 
 # Setting project path based on current user
