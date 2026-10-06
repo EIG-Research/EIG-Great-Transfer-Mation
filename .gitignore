@@ -1,0 +1,8 @@
+*.csv
+*.xlsx
+*.xls
+*.png
+*.zip
+*.Rhistory
+WSJ*
+*do not push
