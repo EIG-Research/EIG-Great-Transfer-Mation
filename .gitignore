@@ -6,3 +6,7 @@
 *.Rhistory
 WSJ*
 *do not push
+.DS_Store
+.Rhistory
+desktop.ini
+~$*
